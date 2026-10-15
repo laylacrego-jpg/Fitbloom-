@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f8eee9">
+<title>FitBloom ✿</title>
+<style>
+:root{color-scheme:light;--bg:#f8eee9;--paper:#fffdfa;--ink:#563d3b;--muted:#987572;--pink:#d99a9c;--pink2:#f0d8d4;--line:#eadbd6;--green:#6b8874;--shadow:0 8px 24px #77524a12}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:14px;padding:12px 14px;background:var(--pink);color:white;font-weight:700}button.secondary{background:var(--pink2);color:var(--ink)}button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}button.small{padding:8px 10px;font-size:.88rem}.app{max-width:760px;margin:auto;min-height:100vh;padding:calc(18px + env(safe-area-inset-top)) 16px calc(88px + env(safe-area-inset-bottom))}.head{display:flex;align-items:center;justify-content:space-between;margin:6px 2px 20px}.eyebrow{font-size:.72rem;letter-spacing:.12em;font-weight:800;color:var(--muted)}h1{font-size:2rem;line-height:1.05;margin:5px 0}h2{font-size:1.25rem;margin:0 0 12px}h3{font-size:1rem;margin:0 0 6px}.sub{color:var(--muted);font-size:.92rem;line-height:1.45}.flower{width:48px;height:48px;border-radius:50%;background:var(--pink2);display:grid;place-items:center;font-size:1.7rem}.card{background:var(--paper);border:1px solid #f0e5e0;border-radius:22px;padding:17px;margin-bottom:13px;box-shadow:var(--shadow)}.hero{background:linear-gradient(135deg,#f0d8d4,#fff9f3);padding:20px}.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.stack{display:grid;gap:10px}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stat{background:#fff8f4;border-radius:16px;padding:13px}.stat strong{font-size:1.5rem;display:block}.pill{display:inline-block;background:#f6e6e1;border-radius:999px;padding:5px 9px;font-size:.75rem;color:var(--muted);font-weight:700}.nav{position:fixed;z-index:4;bottom:0;left:0;right:0;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:#fffdfaee;backdrop-filter:blur(14px);border-top:1px solid var(--line);display:flex;justify-content:center;gap:4px}.nav button{background:transparent;color:var(--muted);padding:9px 8px;flex:1;max-width:115px;font-size:.72rem;display:grid;gap:4px;justify-items:center}.nav button.active{background:var(--pink2);color:var(--ink)}.nav span:first-child{font-size:1.15rem}.screen{display:none}.screen.active{display:block}.exercise{display:flex;gap:10px;align-items:flex-start;border-bottom:1px solid var(--line);padding:12px 0}.exercise:last-child{border-bottom:0}.exercise input[type=checkbox]{width:21px;height:21px;accent-color:var(--pink);margin-top:2px}.exercise .info{flex:1}.exercise.done .name{text-decoration:line-through;color:var(--muted)}.name{font-weight:750}.sets{font-size:.85rem;color:var(--muted);margin-top:3px}.field{display:grid;gap:6px;margin:10px 0}.field label{font-size:.86rem;font-weight:700}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fffdfa;color:var(--ink)}.field textarea{min-height:76px;resize:vertical}.actions{display:flex;gap:8px;flex-wrap:wrap}.actions button{flex:1}.notice{background:#fff4d9;color:#725c2d;padding:12px;border-radius:14px;font-size:.87rem;line-height:1.4}.mutedline{border:0;border-top:1px solid var(--line);margin:14px 0}.empty{padding:18px;text-align:center;color:var(--muted);background:#fff8f4;border-radius:14px}.machine{padding:12px 0;border-bottom:1px solid var(--line)}.machine:last-child{border-bottom:0}.machine p{margin:5px 0;color:var(--muted);font-size:.9rem;line-height:1.4}.footer{font-size:.75rem;color:var(--muted);text-align:center;margin-top:18px}small{color:var(--muted)}@media(min-width:600px){.app{padding-left:24px;padding-right:24px}.grid2{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="head"><div><div class="eyebrow">YOUR PERSONAL FITNESS SPACE</div><h1>FitBloom <span style="color:var(--pink)">✿</span></h1><div class="sub">Small steps. Stronger every day.</div></div><div class="flower">✿</div></header>
+
+<section id="home" class="screen active">
+  <div class="card hero">
+    <div class="eyebrow">TODAY'S LITTLE WIN</div><h2 style="font-size:1.55rem;margin-top:7px">Ready to bloom?</h2>
+    <p class="sub">Pick a plan that fits your energy today. You don't have to do everything to make progress.</p>
+    <div class="actions"><button onclick="go('workouts')">Choose a workout →</button><button class="secondary" onclick="go('recommend')">Help me choose</button></div>
+  </div>
+  <div class="grid2">
+    <div class="stat"><span class="sub">Workouts logged</span><strong id="homeCount">0</strong><small>sessions completed</small></div>
+    <div class="stat"><span class="sub">Protein today</span><strong id="homeProtein">0 g</strong><small>logged so far</small></div>
+    <div class="stat"><span class="sub">Saved plans</span><strong id="homeSaved">0</strong><small>your favorites</small></div>
+  </div>
+  <div class="card"><div class="row"><h2>Quick check-in ♡</h2><span class="pill">just for you</span></div>
+    <div class="field"><label for="energy">How's your energy today?</label><select id="energy"><option>Pretty good</option><option>A little tired</option><option>Low energy</option><option>Rest day</option></select></div>
+    <div class="field"><label for="notes">Any notes for yourself?</label><textarea id="notes" placeholder="How you feel, what went well…"></textarea></div>
+    <button onclick="saveCheckin()">Save check-in</button> <small id="checkinMsg"></small>
+  </div>
+  <div class="notice">Safety first: choose comfortable movements and stop if you feel sharp pain, joint pain, dizziness, or unusual symptoms. Don't train through knee pain or unusual popping.</div>
+</section>
+
+<section id="workouts" class="screen">
+  <div class="card"><div class="eyebrow">YOUR WORKOUT LIBRARY</div><h2>Pick your session</h2><p class="sub">Choose a plan, check off exercises as you go, then save your session to your history.</p>
+    <div class="field"><label for="planSelect">Workout plan</label><select id="planSelect" onchange="renderPlan()"><option>Full Body</option><option>Upper Body</option><option>Lower Body — knee-friendly only if comfortable</option><option>Gentle Movement</option><option>Core & Mobility</option></select></div>
+    <div id="planList"></div>
+    <div class="field"><label for="sessionNote">Session notes (optional)</label><textarea id="sessionNote" placeholder="Weights used, how it felt…"></textarea></div>
+    <div class="actions"><button onclick="finishWorkout()">Complete workout</button><button class="secondary" onclick="toggleFavorite()">♡ Save plan</button></div>
+    <small id="planMessage"></small>
+  </div>
+</section>
+
+<section id="recommend" class="screen">
+  <div class="card"><div class="eyebrow">PERSONAL PLAN HELPER</div><h2>What fits today?</h2><p class="sub">This first version uses free built-in rules, not a paid AI service.</p>
+    <div class="field"><label for="timeAvailable">Time available</label><select id="timeAvailable"><option value="15">15 minutes</option><option value="30" selected>30 minutes</option><option value="45">45 minutes</option><option value="60">60 minutes</option></select></div>
+    <div class="field"><label for="place">Where are you training?</label><select id="place"><option>Planet Fitness</option><option>At home</option><option>Anywhere / bodyweight</option></select></div>
+    <div class="field"><label for="goal">Today's focus</label><select id="goal"><option>Full body</option><option>Upper body</option><option>Lower body</option><option>Core and mobility</option><option>Gentle movement</option></select></div>
+    <div class="field"><label for="feeling">How do you feel?</label><select id="feeling"><option>Normal</option><option>Tired</option><option>Need something gentle</option><option>Any pain or unusual symptoms</option></select></div>
+    <button onclick="recommend()">Make my plan ✿</button><div id="recommendResult" style="margin-top:14px"></div>
+  </div>
+</section>
+
+<section id="machines" class="screen">
+  <div class="card"><div class="eyebrow">GYM CHEAT SHEET</div><h2>Machine guide</h2><p class="sub">Start with a light weight, adjust the seat, and ask gym staff to demonstrate if you're unsure.</p>
+    <div class="field"><label for="machineSearch">Find a machine</label><input id="machineSearch" placeholder="Try “row” or “legs”" oninput="renderMachines()"></div><div id="machineList"></div>
+  </div>
+</section>
+
+<section id="nutrition" class="screen">
+  <div class="card"><div class="eyebrow">FOOD & FUEL</div><h2>Nutrition notes</h2><p class="sub">A simple log, not a strict diet. Your needs change with growth, activity, and how you feel.</p>
+    <div class="grid2"><div class="stat"><span class="sub">Protein logged today</span><strong id="proteinTotal">0 g</strong></div><div class="stat"><span class="sub">Items logged</span><strong id="foodCount">0</strong></div></div>
+    <div class="field"><label for="foodName">Food or drink</label><input id="foodName" placeholder="e.g. yogurt, protein shake"></div>
+    <div class="field"><label for="proteinAmount">Protein (grams, optional)</label><input id="proteinAmount" type="number" min="0" max="300" inputmode="decimal" placeholder="e.g. 15"></div>
+    <button onclick="addFood()">Add to today's log</button>
+    <hr class="mutedline"><div id="foodList"></div><button class="ghost small" onclick="clearFood()">Clear today's food log</button>
+  </div>
+</section>
+
+<section id="history" class="screen">
+  <div class="card"><div class="eyebrow">YOUR CONSISTENCY</div><h2>Workout history</h2><p class="sub">Celebrate showing up, not just numbers.</p><div class="grid2"><div class="stat"><span class="sub">Sessions</span><strong id="historyCount">0</strong></div><div class="stat"><span class="sub">Exercises checked</span><strong id="exerciseCount">0</strong></div></div><div id="historyList" style="margin-top:12px"></div><button class="ghost small" onclick="clearHistory()">Clear workout history</button>
+  </div>
+</section>
+
+<section id="reminders" class="screen">
+  <div class="card"><div class="eyebrow">GENTLE NUDGES</div><h2>Workout reminders</h2><p class="sub">Set a preferred time. This starter version can save your reminder preference and show it when you open the app; it does not reliably send notifications while closed.</p>
+    <div class="field"><label for="reminderTime">Preferred time</label><input type="time" id="reminderTime" value="17:00"></div>
+    <div class="field"><label><input type="checkbox" id="reminderEnabled" style="width:auto"> Enable reminder preference</label></div>
+    <div class="field"><label for="reminderText">Reminder message</label><input id="reminderText" value="A little movement, if it feels good ♡"></div>
+    <button onclick="saveReminder()">Save reminder</button><div id="reminderStatus" class="sub" style="margin-top:10px"></div>
+    <hr class="mutedline"><div class="notice">Real push notifications on iPhone require a supported Home Screen web app, permission, and additional setup. We'll keep this feature honest and free for now.</div>
+  </div>
+</section>
+
+<div class="footer">FitBloom · private starter app · your data stays in this browser on this device</div>
+</div>
+<nav class="nav" aria-label="Main navigation">
+<button class="active" data-go="home" onclick="go('home')"><span>⌂</span>Home</button>
+<button data-go="workouts" onclick="go('workouts')"><span>♡</span>Workouts</button>
+<button data-go="recommend" onclick="go('recommend')"><span>✧</span>Plan</button>
+<button data-go="machines" onclick="go('machines')"><span>▦</span>Machines</button>
+<button data-go="nutrition" onclick="go('nutrition')"><span>☼</span>Nutrition</button>
+<button data-go="history" onclick="go('history')"><span>▤</span>History</button>
+<button data-go="reminders" onclick="go('reminders')"><span>♧</span>Reminders</button>
+</nav>
+<script>
+const KEY='fitbloom-private-v1';
+const defaultData={history:[],favorites:[],foods:[],checkin:{energy:'Pretty good',notes:''},reminder:{time:'17:00',enabled:false,text:'A little movement, if it feels good ♡'}};
+let data;
+try{data=Object.assign({},defaultData,JSON.parse(localStorage.getItem(KEY)||'{}'));}catch(e){data={...defaultData};}
+let checked=new Set();
+const plans={
+'Full Body':[['Chest press','3 sets × 10 reps','Push handles forward smoothly; keep back supported.'],['Lat pulldown','3 × 10','Pull bar toward upper chest; avoid swinging.'],['Seated row','2 × 12','Pull toward torso with elbows close.'],['Glute bridge','2 × 10','Lift hips gently; skip if it causes pain.'],['Biceps curl','2 × 12','Keep elbows by sides; no swinging.'],['Ab crunch','2 × 10','Curl gently; avoid pulling on your neck.']],
+'Upper Body':[['Chest press','3 × 10','Keep shoulders comfortable and back supported.'],['Lat pulldown','3 × 10','Pull toward upper chest, not behind your neck.'],['Seated row','2 × 12','Stay tall and move with control.'],['Shoulder press','2 × 10','Use a light load and pain-free range.'],['Biceps curl','2 × 12','Keep elbows near your sides.'],['Triceps pushdown','2 × 12','Keep elbows tucked by your sides.']],
+'Lower Body — knee-friendly only if comfortable':[['Seated hamstring curl','2 × 10','Only if pain-free and appropriate for you; use very light resistance.'],['Glute bridge','2 × 10','Only if comfortable; keep movement controlled.'],['Hip abduction machine','2 × 12','Use comfortable range and light resistance.'],['Calf raise','2 × 10','Hold support and avoid if painful.']],
+'Gentle Movement':[['Easy walk or seated movement','5 minutes','Choose a comfortable pace; stop if symptoms appear.'],['Wall push-up','2 × 8','Keep body straight and move comfortably.'],['Seated row (light)','2 × 10','Use light resistance and controlled movement.'],['Gentle upper-body mobility','3 minutes','No forcing or painful stretches.']],
+'Core & Mobility':[['Bird dog','2 × 6 each side','Move slowly; keep your back neutral.'],['Dead bug','2 × 6 each side','Keep lower back comfortable against the floor.'],['Seated march','2 × 10','Only in a comfortable range.'],['Gentle shoulder mobility','2 minutes','Slow, pain-free movements.']]
+};
+const machines=[
+['Chest press','Chest, shoulders, triceps','Adjust seat so handles are around mid-chest. Press forward without locking elbows; return slowly.'],
+['Lat pulldown','Back, biceps','Secure thighs under pads. Pull bar toward upper chest, never behind the neck. Avoid swinging.'],
+['Seated row','Back, biceps','Sit tall, pull handles toward torso, then return slowly without rounding your back.'],
+['Leg curl','Hamstrings','Align knee with machine pivot and use light resistance. Skip if knee hurts or symptoms are unusual.'],
+['Hip abduction','Outer hips','Sit with back supported; move knees outward in a comfortable range.'],
+['Chest-supported / shoulder press','Shoulders, triceps','Set seat and handles comfortably. Use light weight and stop if shoulder pain occurs.'],
+['Cable triceps pushdown','Triceps','Elbows stay close to sides; push down smoothly and return with control.'],
+['Ab crunch','Abdominals','Adjust pad comfortably; curl torso gently. Do not pull on your neck.']
+];
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(data));}catch(e){alert('Could not save locally. Your browser storage may be unavailable.');}refresh();}
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.go===id));if(id==='workouts')renderPlan();if(id==='machines')renderMachines();if(id==='nutrition')renderFood();if(id==='history')renderHistory();if(id==='reminders')loadReminder();window.scrollTo({top:0,behavior:'smooth'});}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function renderPlan(){const name=document.getElementById('planSelect').value;const list=plans[name]||plans['Full Body'];document.getElementById('planList').innerHTML=list.map((e,i)=>`<div class="exercise ${checked.has(i)?'done':''}"><input type="checkbox" ${checked.has(i)?'checked':''} aria-label="Complete ${esc(e[0])}" onchange="toggleExercise(${i},this.checked)"><div class="info"><div class="name">${esc(e[0])}</div><div class="sets">${esc(e[1])}</div><div class="sub">${esc(e[2])}</div></div></div>`).join('');}
+function toggleExercise(i,on){if(on)checked.add(i);else checked.delete(i);renderPlan();}
+function toggleFavorite(){const n=document.getElementById('planSelect').value;if(data.favorites.includes(n)){data.favorites=data.favorites.filter(x=>x!==n);document.getElementById('planMessage').textContent='Removed from favorites.';}else{data.favorites.push(n);document.getElementById('planMessage').textContent='Saved to favorites ♡';}persist();}
+function finishWorkout(){if(!checked.size){document.getElementById('planMessage').textContent='Check off at least one exercise before logging this session.';return;}const n=document.getElementById('planSelect').value;data.history.unshift({name:n,date:new Date().toISOString(),count:checked.size,note:document.getElementById('sessionNote').value.trim()});checked.clear();document.getElementById('sessionNote').value='';document.getElementById('planMessage').textContent='Workout saved. Proud of you! ✿';persist();renderPlan();}
+function recommend(){const time=+document.getElementById('timeAvailable').value,place=document.getElementById('place').value,goal=document.getElementById('goal').value,feeling=document.getElementById('feeling').value;let name=goal;if(feeling==='Need something gentle'||feeling==='Tired'||feeling==='Any pain or unusual symptoms')name='Gentle Movement';else if(goal==='Lower body'&&feeling==='Any pain or unusual symptoms')name='Gentle Movement';else if(goal==='Full body')name='Full Body';else if(goal==='Upper body')name='Upper Body';else if(goal==='Lower body')name='Lower Body — knee-friendly only if comfortable';else if(goal==='Core and mobility')name='Core & Mobility';let list=plans[name]||plans['Gentle Movement'];let max=time<=15?2:time<=30?4:6;const safety=feeling==='Any pain or unusual symptoms'?'<div class="notice">Skip exercises that provoke symptoms. If you have ongoing joint pain, unusual popping, swelling, or difficulty moving normally, pause training and talk with a healthcare professional.</div>':'';document.getElementById('recommendResult').innerHTML=`<div class="card" style="margin-top:10px"><span class="pill">YOUR SUGGESTED PLAN</span><h2 style="margin-top:10px">${esc(name)}</h2><p class="sub">${time} minutes · ${esc(place)}</p>${safety}<div>${list.slice(0,max).map(e=>`<div class="machine"><strong>${esc(e[0])}</strong><p>${esc(e[1])} · ${esc(e[2])}</p></div>`).join('')}</div><button style="margin-top:12px" onclick="document.getElementById('planSelect').value=${JSON.stringify(name)};checked.clear();go('workouts');renderPlan()">Open this workout</button></div>`;}
+function renderMachines(){const q=(document.getElementById('machineSearch').value||'').toLowerCase();document.getElementById('machineList').innerHTML=machines.filter(m=>m.join(' ').toLowerCase().includes(q)).map(m=>`<div class="machine"><h3>${esc(m[0])}</h3><span class="pill">${esc(m[1])}</span><p>${esc(m[2])}</p></div>`).join('')||'<div class="empty">No machines found. Try a different search.</div>';}
+function addFood(){const name=document.getElementById('foodName').value.trim(),p=Number(document.getElementById('proteinAmount').value||0);if(!name){alert('Add a food or drink name first.');return;}if(!Number.isFinite(p)||p<0||p>300){alert('Enter a protein amount from 0 to 300 grams.');return;}data.foods.push({name,protein:p,date:new Date().toDateString()});document.getElementById('foodName').value='';document.getElementById('proteinAmount').value='';persist();renderFood();}
+function todayFoods(){return data.foods.filter(f=>f.date===new Date().toDateString());}
+function renderFood(){const fs=todayFoods(),total=fs.reduce((a,f)=>a+(+f.protein||0),0);document.getElementById('proteinTotal').textContent=total+' g';document.getElementById('foodCount').textContent=fs.length;document.getElementById('foodList').innerHTML=fs.length?fs.map((f,i)=>`<div class="row machine"><div><strong>${esc(f.name)}</strong><p class="sub">${+f.protein||0} g protein</p></div><button class="ghost small" onclick="removeFood(${data.foods.indexOf(f)})">Remove</button></div>`).join(''):'<div class="empty">Your food log is empty. Add something above if you want to.</div>';refreshStats(total);}
+function removeFood(i){data.foods.splice(i,1);persist();renderFood();}
+function clearFood(){if(confirm("Clear today's food log?")){data.foods=data.foods.filter(f=>f.date!==new Date().toDateString());persist();renderFood();}}
+function renderHistory(){document.getElementById('historyCount').textContent=data.history.length;document.getElementById('exerciseCount').textContent=data.history.reduce((a,h)=>a+(h.count||0),0);document.getElementById('historyList').innerHTML=data.history.length?data.history.map(h=>`<div class="machine"><strong>${esc(h.name)}</strong><p>${new Date(h.date).toLocaleString()} · ${h.count} exercises checked</p>${h.note?`<p>${esc(h.note)}</p>`:''}</div>`).join(''):'<div class="empty">No workouts logged yet. Your first one can be small.</div>';}
+function clearHistory(){if(confirm('Clear all saved workout history?')){data.history=[];persist();renderHistory();}}
+function saveCheckin(){data.checkin={energy:document.getElementById('energy').value,notes:document.getElementById('notes').value};persist();document.getElementById('checkinMsg').textContent='Saved ♡';}
+function saveReminder(){data.reminder={time:document.getElementById('reminderTime').value,enabled:document.getElementById('reminderEnabled').checked,text:document.getElementById('reminderText').value};persist();document.getElementById('reminderStatus').textContent=data.reminder.enabled?`Saved: ${data.reminder.time} — ${data.reminder.text}. This starter app will not alert you while closed.`:'Reminder preference saved as off.';}
+function loadReminder(){document.getElementById('reminderTime').value=data.reminder.time||'17:00';document.getElementById('reminderEnabled').checked=!!data.reminder.enabled;document.getElementById('reminderText').value=data.reminder.text||'';document.getElementById('reminderStatus').textContent=data.reminder.enabled?`Your preferred reminder is ${data.reminder.time}.`:'No reminder enabled.';}
+function refreshStats(total){document.getElementById('homeCount').textContent=data.history.length;document.getElementById('homeProtein').textContent=(total===undefined?todayFoods().reduce((a,f)=>a+(+f.protein||0),0):total)+' g';document.getElementById('homeSaved').textContent=data.favorites.length;}
+function refresh(){refreshStats();if(document.getElementById('nutrition').classList.contains('active'))renderFood();if(document.getElementById('history').classList.contains('active'))renderHistory();}
+function init(){document.getElementById('energy').value=data.checkin.energy||'Pretty good';document.getElementById('notes').value=data.checkin.notes||'';renderPlan();renderMachines();renderFood();renderHistory();loadReminder();refresh();}
+init();
+</script>
+</body>
+</html>
